@@ -31,6 +31,10 @@ class ESQ_Models_Frontend {
 		} elseif ( is_search() ) {
 			$this->context = 'search';
 		} elseif ( ( function_exists( 'is_shop' ) && is_shop() ) || is_post_type_archive() || is_archive() ) {
+			$queried = get_queried_object();
+			if ( $queried && $queried instanceof WP_Post ) {
+				$this->post = $queried;
+			}
 			$this->context = 'archive';
 		} elseif ( is_404() ) {
 			$this->context = '404';
@@ -136,7 +140,7 @@ class ESQ_Models_Frontend {
 				break;
 
 			case 'archive':
-				$title = wp_get_document_title();
+				$title = '{{title}} {{sep}} {{sitename}}';
 				break;
 
 			case '404':
