@@ -20,7 +20,7 @@ $og_desc     = isset( $metas['og_description'] ) ? $metas['og_description'] : ''
 $og_image    = isset( $metas['og_image'] ) ? $metas['og_image'] : '';
 
 $display_title   = $current_title !== '' ? $current_title : get_the_title( $post->ID );
-$display_url     = home_url( $_SERVER['REQUEST_URI'] );
+$display_url     = get_permalink( $post->ID );
 $display_desc    = $current_desc !== '' ? $current_desc : wp_trim_words( wp_strip_all_tags( $post->post_excerpt ? $post->post_excerpt : $post->post_content ), 30, '...' );
 ?>
 <div class="easyseo-metabox">

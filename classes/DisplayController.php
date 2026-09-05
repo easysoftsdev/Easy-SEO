@@ -43,7 +43,7 @@ class ESQ_Classes_DisplayController {
 
 		//admin css
 		if ( file_exists( _ESQ_ASSETS_DIR_ . 'css/easy-admin.css' ) ) {
-			wp_enqueue_style( 'easyseo-admin', _ESQ_ASSETS_URL_ . 'css/easy-admin.css', array(), ESQ_VERSION );
+			wp_enqueue_style( 'easyseo-admin', _ESQ_ASSETS_URL_ . 'css/easy-admin.css', array( 'dashicons' ), ESQ_VERSION );
 		}
 	}
 
